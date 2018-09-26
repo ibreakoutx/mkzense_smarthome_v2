@@ -23,4 +23,5 @@ var initdb = function(uri) {
   initdbAsync(uri);
 }
 
-initdb("mongodb://localhost/test");
+initdb('mongodb://mkzense:mkzensemongo@localhost:27017/test');
+

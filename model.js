@@ -62,7 +62,9 @@ module.exports.getAccessToken = function(bearerToken) {
  */
 
 module.exports.getClient = function(clientId, clientSecret) {
-  return OAuthClientsModel.findOne({ clientId: clientId, clientSecret: clientSecret }).lean();
+    //return OAuthClientsModel.findOne({ clientId: clientId, clientSecret: clientSecret }).lean();
+  //For google password implicit flow, no field for client secret
+  return OAuthClientsModel.findOne({ clientId: clientId }).lean();    
 };
 
 /**

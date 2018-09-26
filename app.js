@@ -31,7 +31,7 @@ const mqttClient = mqtt.connect(MQTT_BROKER)
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
-var mongodbUri = "mongodb://localhost/test";
+var mongodbUri = "mongodb://mkzense:mkzensemongo@localhost/test";
 
 var app = express();
 
