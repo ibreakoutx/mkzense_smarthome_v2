@@ -787,15 +787,27 @@ set fan speed high
     switch( command.command ) {
     case "action.devices.commands.OnOff" :
 	if ( command.params.on ) {
-	    mqttMessage = "ON_FAN" ;
+	    mqttMessage = "FAN_ON" ;
 	}
 	else {
-	    mqttMessage = "OFF_FAN" ;
+	    mqttMessage = "FAN_OFF" ;
 	}
 	break;
 
     case "action.devices.commands.SetFanSpeed":
-	mqttMessage = "FAN_SPEED_" + command.params.fanSpeed.toUpperCase() ;
+	
+	switch( command.params.fanSpeed.toUpperCase()) {
+	case "HIGH" :
+	    mqttMessage = "FAN_SPEED_7";
+	    break;
+	case "MEDIUM":
+	    mqttMessage = "FAN_SPEED_6";	    
+	    break;
+	case "LOW":
+	    mqttMessage = "FAN_SPEED_5";	    
+	    break;
+	}
+	
 	break;
 
     default:
